@@ -1,0 +1,26 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE / OS
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+
+# Credentials (SANGAT PENTING!)
+*.json
+!skills.json
+!plugin.json
+!package.json
+!package-lock.json
+
+# Docker
+docker-compose.override.yml

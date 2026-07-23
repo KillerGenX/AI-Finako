@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: finako_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount environment variables
+      - ./backend/.env:/app/.env
+    restart: unless-stopped
