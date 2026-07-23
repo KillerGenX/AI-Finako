@@ -44,7 +44,7 @@ def analyze_company(query: str, raw_data: str) -> ScoutListResult:
     
     # Memanggil Vertex AI via LiteLLM
     response = completion(
-        model="vertex_ai/gemini-1.5-pro",
+        model="vertex_ai/gemini-2.5-pro",
         messages=[{"role": "user", "content": prompt}],
     )
     
