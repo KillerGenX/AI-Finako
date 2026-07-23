@@ -12,3 +12,26 @@ services:
       # Mount environment variables
       - ./backend/.env:/app/.env
     restart: unless-stopped
+    networks:
+      - finako_net
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: finako_n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Asia/Jakarta
+      - TZ=Asia/Jakarta
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks:
+      - finako_net
+
+volumes:
+  n8n_data:
+
+networks:
+  finako_net:
+    driver: bridge
