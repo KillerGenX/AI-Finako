@@ -1,6 +1,9 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
+class QueryRequest(BaseModel):
+    query: str
+
 class BuyingSignal(BaseModel):
     signal_type: str
     description: str
@@ -19,3 +22,11 @@ class ScoutResult(BaseModel):
     description: str
     signals: List[BuyingSignal]
     evaluation: OpportunityEvaluation
+
+class ScoutListResult(BaseModel):
+    results: List[ScoutResult]
+
+class OpportunityUpdate(BaseModel):
+    status: str
+    reasoning: Optional[str] = None
+    next_action: Optional[str] = None

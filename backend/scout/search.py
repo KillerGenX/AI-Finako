@@ -1,9 +1,10 @@
 import httpx
 from backend.core.config import settings
 
-async def search_company_info(domain: str) -> str:
+async def search_company_info(query: str) -> str:
     """
-    Mencari informasi profil dan berita terbaru perusahaan menggunakan Tavily Search API.
+    Mencari informasi perusahaan berdasarkan query bebas menggunakan Tavily Search API.
+    Contoh query: "Perusahaan kelapa sawit di Riau"
     """
     if not settings.TAVILY_API_KEY:
         raise ValueError("TAVILY_API_KEY is missing in environment variables")
@@ -11,10 +12,10 @@ async def search_company_info(domain: str) -> str:
     url = "https://api.tavily.com/search"
     payload = {
         "api_key": settings.TAVILY_API_KEY,
-        "query": f"company profile, business model, and recent news for {domain}",
+        "query": f"Business overview, recent news, and exact company names for: {query}. Focus on enterprise prospects in Indonesia.",
         "search_depth": "advanced",
         "include_answer": True,
-        "max_results": 5,
+        "max_results": 7,
     }
     
     async with httpx.AsyncClient() as client:
@@ -24,4 +25,4 @@ async def search_company_info(domain: str) -> str:
         
     answer = data.get('answer', '')
     results = [res.get('content', '') for res in data.get('results', [])]
-    return f"{answer}\n\n" + "\n".join(results)
+    return f"ANALISIS AWAL: {answer}\n\nSUMBER DATA:\n" + "\n".join(results)
