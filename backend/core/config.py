@@ -13,6 +13,8 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str = ""
     VERTEX_PROJECT: str = ""
     VERTEX_LOCATION: str = ""
+    
+    TELEGRAM_BOT_TOKEN: str = ""
 
     class Config:
         env_file = ".env"

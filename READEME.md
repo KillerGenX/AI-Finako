@@ -82,18 +82,12 @@ These modules will only be developed after the two core capabilities are stable.
 
 # Technology Stack
 
-| Layer | Technology |
-|--------|------------|
-| Backend API | FastAPI |
-| Workflow | n8n |
-| AI Gateway | LiteLLM |
-| LLM | Gemini 2.5 |
-| Database | Supabase PostgreSQL |
-| Vector Database | pgvector |
-| Search | Tavily Search API |
-| Document Parsing | FastAPI |
-| Deployment | Docker Compose |
-| Infrastructure | Google Cloud VM |
+- **Database**: Supabase (PostgreSQL + pgvector)
+- **Backend API & Chatbot**: FastAPI (Python) + python-telegram-bot (Polling Mode)
+- **AI Models**: Google Vertex AI (Gemini 1.5 Pro)
+- **Search Engine**: Tavily Search API
+- **Web Scraper**: Firecrawl
+- **Background Orchestrator**: n8n (CRON Jobs & Integrations)
 
 ---
 
