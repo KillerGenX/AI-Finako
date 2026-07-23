@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     SUPABASE_JWT_SECRET: str = ""
     
     TAVILY_API_KEY: str = ""
+    FIRECRAWL_API_KEY: str = ""
     GEMINI_API_KEY: str = ""
     VERTEX_PROJECT: str = ""
     VERTEX_LOCATION: str = ""
